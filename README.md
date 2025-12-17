@@ -1,3 +1,31 @@
+# Distributed Sentence-Level File System
+
+A distributed, multi-user file storage system with fine-grained sentence-level locking and concurrent editing capabilities. Built with C for systems-level performance.
+
+## Key Features
+- Sentence-level locking for concurrent editing by multiple users
+- Distributed architecture with NameServer coordination and multiple StorageServers
+- Fine-grained access control with persistent ACLs
+- Automatic versioning and backup with UNDO support
+- Fault-tolerant design with storage server failover
+- Real-time file streaming capabilities
+
+
+## Technical Highlights
+- Custom sentence parsing algorithm that splits on `.`, `?`, `!` delimiters
+- Lock-free reads with sentence-level write locks for concurrency
+- Distributed hash table for file-to-storage-server mapping
+- Persistent access control lists (ACLs) with save/restore
+- Automatic backup on write operations with rollback support
+
+
+## Technologies Used
+- **Language**: C
+- **Networking**: Unix sockets, multi-threaded with pthreads
+- **Architecture**: Distributed client-server with coordination service
+- **Data Structures**: Hash tables, doubly-linked lists for sentence/word storage
+
+
 ## Usage Instructions
 
 Client
@@ -39,6 +67,9 @@ $ ./bin/ss <storage_path> <ss-port> <ns-ip> <ns-port>
 - **StorageServers** execute fine-level file operations (read, write, split, etc.), maintain backups, track locks locally, and update metadata.
 
 ---
+
+
+## System Architecture
 
 ## File-by-File Summary
 
