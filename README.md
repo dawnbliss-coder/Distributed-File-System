@@ -14,7 +14,6 @@ A distributed, multi-user file storage system with fine-grained sentence-level l
 ## Technical Highlights
 - Custom sentence parsing algorithm that splits on `.`, `?`, `!` delimiters
 - Lock-free reads with sentence-level write locks for concurrency
-- Distributed hash table for file-to-storage-server mapping
 - Persistent access control lists (ACLs) with save/restore
 - Automatic backup on write operations with rollback support
 
